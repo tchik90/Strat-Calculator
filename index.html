@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fuel Calculator</title>
+    <link rel="stylesheet" class="style" href="style/style.css">
+    <link rel="stylesheet" href="style/responsive.css">
+    <script src="scripts/script_strat_time.js" defer></script>
+</head>
+<body>
+    <!-- HEADER -->
+    <header>
+        <nav>
+            <a href="index.html" class="lien-icone">
+                <img src="images/home.png" class="home" alt="Logo" />
+            </a>
+            <div class="liens">
+                <a href="fuel_time.html">Fuel Calculator</a>
+                <a href="tires_time.html">Tire Calculator</a>
+                <a href="strat_time.html">Strat Calculator</a>
+            </div>
+        </nav>
+    </header>
+    
+    <!-- MAIN -->
+    <main>
+        <h1>Strategie Calculator</h1>
+        <div class="button" id="button">
+            <button class="button_time" onclick="window.location.href = 'strat_time.html';" style="background-color: black; color: white;">Time</button>
+            <button class="button_lap" onclick="window.location.href = 'strat_lap.html';">Lap</button>
+        </div>
+        <div class="race_time" id="race_time">
+            <label for="time" class="time" id="time">Durée de la course en minutes</label>
+            <input type="number" class="input_time" id="input_time" name="input_time" placeholder="60">
+        </div>
+        <div class="pneus" id="pneus">
+            <label for="pneus">Pneus utilisé lors des tours de test</label>
+            <section class="sec_tyres" id="sec_tyres">
+                <div class="select">
+                    <input type="radio"  name="tyres" id="soft" value="soft" class="option" checked>
+                    <label for="soft">SOFT</label>
+                </div>
+                <div class="select">
+                    <input type="radio"  name="tyres" id="medium" class="option" value="medium">
+                    <label for="medium">MEDIUM</label>
+                </div>
+                <div class="select">
+                    <input type="radio"  name="tyres" id="hard" class="option" value="hard">
+                    <label for="hard">HARD</label>
+                </div>  
+            </section>
+        </div> 
+        <div class="div_temps" id="div_temps">
+            <label for="time_lap" class="time_lap" id="time_lap">Temps au tour (en moyenne)</label>
+            <section class="sec_lap" id="sec_lap">
+                <div class="minutes">
+                    <label for="min_tour" class="minutes">minutes</label>
+                    <input type="number" id="minutes" name="minutes" class="minutes" placeholder="1">
+                </div>           
+                <div class="secondes">
+                    <label for="sec_tour" class="secondes">secondes</label>
+                    <input type="number" id="secondes" name="secondes" class="secondes" placeholder="30">
+                </div>
+                <div class="dixiemes">
+                    <label for="dix_tour" class="dixiemes">dixèmes</label>
+                    <input type="number" id="dixiemes" name="dixiemes" class="dixiemes" placeholder="5">
+                </div>
+            </section>
+        </div>   
+        <div class="div_temps" id="div_temps">
+            <label for="time_lap" class="time_lap" id="time_lap">Tours de test</label>
+            <section class="sec_lap" id="sec_lap">
+                <div class="minutes">
+                    <label for="min_tour" class="minutes">nombre de tours</label>
+                    <input type="number" id="test_tours" name="minutes" class="minutes" placeholder="10">
+                </div>           
+                <div class="secondes">
+                    <label for="sec_tour" class="secondes">usure restante</label>
+                    <input type="number" id="test_usure" name="secondes" class="secondes" placeholder="80">
+                </div>
+                <div class="dixiemes">
+                    <label for="dix_tour" class="dixiemes">conso par tour</label>
+                    <input type="number" id="input_conso" name="dixiemes" class="dixiemes" placeholder="2.5">
+                </div>
+            </section>
+        </div>
+        <div class="result">
+            <div class="tours" id="tours">
+                Nombre de tours en course : <span class="tours">0</span>
+            </div>
+            <div class="fuel">
+                Fuel nécessaire : <span class="fuel">0</span>
+            </div>
+            <div class="fuel">
+                Pneus conseillés : <span class="tyre"></span>
+            </div>
+            <div class="fuel">
+                Temps visé au tour : <span class="tps">0</span>
+            </div>
+            <div class="fuel">
+                Usure totale : <span class="usure">0</span>
+            </div>
+        </div>
+        
+    </main>
+
+    <!-- FOOTER -->
+    <footer>
+        @Copyright : Anthony Raton 
+    </footer>
+</body>
+</html>
