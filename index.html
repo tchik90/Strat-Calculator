@@ -4,6 +4,8 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css' rel='stylesheet' integrity='sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN' crossorigin='anonymous'>
+    <script src='https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js' integrity='sha384-C6RzsynM9kWDrMNeT87bh95OGNyZPhcTNXj1NW7RuBCsyN/o0jlpcV8Qyq46cDfL' crossorigin='anonymous'></script>
     <title>Fuel Calculator</title>
     <link rel="stylesheet" class="style" href="style/style.css">
     <link rel="stylesheet" href="style/responsive.css">
@@ -17,29 +19,35 @@
                 <img src="images/home.png" class="home" alt="Logo" />
             </a>
             <div class="liens">
-                <a href="fuel_time.html">Fuel Calculator</a>
-                <a href="tires_time.html">Tire Calculator</a>
-                <a href="strat_time.html">Strat Calculator</a>
+                <!-- <a href="fuel_time.html">Fuel Calculator</a>
+                <a href="tires_time.html">Tire Calculator</a> -->
+                <a href="index.html" class="me-3">Strat Calculator</a>
             </div>
         </nav>
     </header>
-    
+
     <!-- MAIN -->
     <main>
         <h1>Strategie Calculator</h1>
         <div class="button" id="button">
             <button class="button_time" onclick="window.location.href = 'strat_time.html';" style="background-color: black; color: white;">Time</button>
-            <button class="button_lap" onclick="window.location.href = 'strat_lap.html';">Lap</button>
+            <!-- <button class="button_lap" onclick="window.location.href = 'strat_lap.html';">Lap</button> -->
         </div>
+
+
+        <!-- DUREE DE LA COURSE -->
         <div class="race_time" id="race_time">
             <label for="time" class="time" id="time">Durée de la course en minutes</label>
             <input type="number" class="input_time" id="input_time" name="input_time" placeholder="60">
         </div>
+
+
+        <!-- SELECTION PNEUS -->
         <div class="pneus" id="pneus">
             <label for="pneus">Pneus utilisé lors des tours de test</label>
             <section class="sec_tyres" id="sec_tyres">
                 <div class="select">
-                    <input type="radio"  name="tyres" id="soft" value="soft" class="option" checked>
+                    <input type="radio"  name="tyres" id="soft" value="soft" class="option">
                     <label for="soft">SOFT</label>
                 </div>
                 <div class="select">
@@ -47,11 +55,14 @@
                     <label for="medium">MEDIUM</label>
                 </div>
                 <div class="select">
-                    <input type="radio"  name="tyres" id="hard" class="option" value="hard">
+                    <input type="radio"  name="tyres" id="hard" class="option" value="hard" checked>
                     <label for="hard">HARD</label>
                 </div>  
             </section>
-        </div> 
+        </div>
+
+
+        <!-- TEMPS AU TOUR -->
         <div class="div_temps" id="div_temps">
             <label for="time_lap" class="time_lap" id="time_lap">Temps au tour (en moyenne)</label>
             <section class="sec_lap" id="sec_lap">
@@ -68,17 +79,32 @@
                     <input type="number" id="dixiemes" name="dixiemes" class="dixiemes" placeholder="5">
                 </div>
             </section>
-        </div>   
+        </div>
+
+
+        <!-- USURE / CONSO -->
         <div class="div_temps" id="div_temps">
-            <label for="time_lap" class="time_lap" id="time_lap">Tours de test</label>
+            <label for="time_lap" class="time_lap" id="time_lap">Usure / Conso</label>
+
+            <!-- <div class="container d-flex flex-row justify-content-center">
+                <input type="radio" name="usure" id="usureConnue" class="selectUsure" value="yes" checked>
+                <label for="usureConnue"  class="usureTour ms-1">Je connais l'usure par tour</label>
+                <input type="radio" name="usure" id="usureInconnue" class="selectUsure ms-3" value="no">
+                <label for="usureInconnue"  class="usureTour ms-1">Calcul moi l'usure par tour</label>
+            </div> -->
+
             <section class="sec_lap" id="sec_lap">
-                <div class="minutes">
-                    <label for="min_tour" class="minutes">nombre de tours</label>
+                <!-- <div class="minutes usureNo1">
+                    <label for="min_tour" class="minutes">nombre de tours de test</label>
                     <input type="number" id="test_tours" name="minutes" class="minutes" placeholder="10">
                 </div>           
-                <div class="secondes">
+                <div class="secondes usureNo2">
                     <label for="sec_tour" class="secondes">usure restante</label>
                     <input type="number" id="test_usure" name="secondes" class="secondes" placeholder="80">
+                </div> -->
+                <div class="secondes usureYes">
+                    <label for="sec_tour" class="secondes">usure au tour</label>
+                    <input type="number" id="test_usureYes" name="secondes" class="secondes" placeholder="80">
                 </div>
                 <div class="dixiemes">
                     <label for="dix_tour" class="dixiemes">conso par tour</label>
@@ -86,6 +112,9 @@
                 </div>
             </section>
         </div>
+
+
+        <!-- AFFICHAGE RESULTATS -->
         <div class="result">
             <div class="tours" id="tours">
                 Nombre de tours en course : <span class="tours">0</span>
@@ -94,14 +123,17 @@
                 Fuel nécessaire : <span class="fuel">0</span>
             </div>
             <div class="fuel">
-                Pneus conseillés : <span class="tyre"></span>
+                Pneus conseillés : <span class="tyre"></span> <span class="pitTyre"></span>
+            </div>
+            <div class="fuel">
+                Nombres d'arrêts au stand : <span class="pit"></span>
             </div>
             <div class="fuel">
                 Temps visé au tour : <span class="tps">0</span>
             </div>
-            <div class="fuel">
+            <!-- <div class="fuel">
                 Usure totale : <span class="usure">0</span>
-            </div>
+            </div> -->
         </div>
         
     </main>
