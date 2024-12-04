@@ -49,7 +49,8 @@ function tps() {
     // nombre de tours
     if (isNaN(nbr_tours) || nbr_tours == "Infinity") {
         console.log("NAN : " + nbr_tours)
-        document.querySelector('span.tours').textContent = "";
+        // document.querySelector('span.tours').textContent = "";
+        document.getElementById("result_tours").value = "test"
     } else {
         console.log("number : " + nbr_tours)
         document.querySelector('span.tours').textContent = nbr_tours + " tours";

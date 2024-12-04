@@ -14,7 +14,7 @@
 
     <title>Fuel Calculator</title>
     <link rel="stylesheet" class="style" href="style/style.css">
-    <script src="scripts/fuel_time.js" defer></script>
+    <script src="scripts/fuel_time_v2.js" defer></script>
 </head>
 
 <body class="bg-body-secondary">
@@ -44,19 +44,19 @@
     <!-- MAIN -->
 
 
-    <main class="container mon_main bg-primary-subtle px-3 pt-5 pb-4 m-3">
-        <h1 class="mb-5">Fuel Calculator</h1>
+    <main class="container mon_main bg-primary-subtle py-3 mt-2">
+        <h1 class="mb-3">Fuel Calculator</h1>
 
         <div class="text-center">
             <!-- DUREE DE LA COURSE -->
-            <div class="d-flex justify-content-center align-items-center mb-5" id="race_time">
+            <div class="bgBlock d-flex justify-content-center align-items-center mb-3 pt-1 pb-3" id="race_time">
                 <label for="time" class="time" id="time">Durée de la course en minutes</label>
                 <input type="number" class="input_time w-50" id="input_time" name="input_time" placeholder="60">
             </div>
 
             <!-- TEMPS AU TOUR -->
-            <div class="d-flex justify-content-center align-items-center mb-5" id="div_temps">
-                <label for="time_lap" class="time_lap" id="time_lap">Temps au tour (en moyenne)</label>
+            <div class="bgBlock d-flex justify-content-center align-items-center mb-3 pt-1 pb-3" id="div_temps">
+                <label for="time_lap" class="time_lap" id="time_lap">Temps moyen au tour</label>
                 <section class="sec_lap" id="sec_lap">
                     <div class="minutes">
                         <label for="min_tour" class="minutes">minutes</label>
@@ -73,45 +73,92 @@
                 </section>
             </div>
 
-
-            <!-- CONSO -->
-            <div class="d-flex justify-content-center align-items-center mb-5" id="div_temps">
-                <label for="dix_tour" class="">Conso par tour</label>
-                <input type="number" id="input_conso" name="dixiemes" class="dixiemes w-50" placeholder="2.5">
+            <!-- CONSO / LITRES -->
+            <div class="bgBlock d-flex justify-content-center align-items-center mb-3 pt-1 pb-3" id="div_temps">
+                <label for="time_lap" class="time_lap" id="time_lap">Carburant</label>
+                <section class="sec_lap" id="sec_lap">
+                    <div class="">
+                        <label for="conso" class="dixiemes">Conso par tour</label>
+                        <input type="number" id="input_conso" name="conso" class="dixiemes" placeholder="2.5">
+                    </div>
+                    <div class="">
+                        <label for="capacity" class="secondes">Capacité réservoir</label>
+                        <input type="number" id="input_capacity" name="capacity" class="dixiemes" placeholder="100">
+                    </div>
+                </section>
             </div>
 
 
             <!-- CHECKBOX -->
-            <div class="d-flex justify-content-center align-items-center mb-5">
+            <div class="bgBlock d-flex justify-content-center align-items-center mb-3 pt-1 pb-3">
                 <label for="" class="" id="">Options de calcul</label>
                 <div class="d-flex flex-row container_option p-3 mt-2">
                     <div class="me-2">
                         <label for="formation_lap" class="choix_options">Tour de formation</label>
-                        <input type="checkbox" name="formation_lap" id="formation_lap" checked>
+                        <input type="checkbox" name="formation_lap" id="formation_lap" >
                     </div>
                     <div class="ms-2">
                         <label for="tour_marge" class="choix_options">Ajouter un tour marge</label>
-                        <input type="checkbox" name="tour_marge" id="tour_marge" checked>
+                        <input type="checkbox" name="tour_marge" id="tour_marge" >
                     </div>
                 </div>
+                <div>
+                    <div class="fuel">
+                        Tours de fuel en plus (marge) : <span class="marge_fuel">1</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- AFFICHAGE RESULTATS V2 -->
+            <div class="bgBlock mb-3 pt-1 pb-3 block_result" id="div_temps">
+                <label for="time_lap" class="time_lap" id="time_lap"></label>
+                <section class="section_result mt-1" id="">
+                    <div class="">
+                        <label for="" class="input_result">Tours en course</label>
+                        <input type="text" id="result_tours" name="" class="input_result">
+                    </div>
+                    <div class="">
+                        <label for="" class="input_result">Fuel nécessaire</label>
+                        <input type="text" id="result_fuel" name="" class="input_result">
+                    </div>
+                    <div class="">
+                        <label for="" class="input_result">Tours par plein</label>
+                        <input type="text" id="result_tours_plein" name="" class="input_result">
+                    </div>
+                    <div class="">
+                        <label for="" class="input_result">Nombre d'arrêts</label>
+                        <input type="text" id="result_stop" name="" class="input_result">
+                    </div>
+                    <div class="">
+                        <label for="" class="input_result">Refuel pour finir *</label>
+                        <input type="text" id="result_refuel" name="" class="input_result">
+                    </div>
+                </section>
+            </div>
+            <div>
+                <p class="info_footer mt-3"><b><i>* Refuel pour finir</b></i> prend en compte le nombre de litres encore présent dans le réservoir au moment de l'arrêt.</p>
             </div>
 
 
             <!-- AFFICHAGE RESULTATS -->
-            <div class="result">
-                <div class="tours" id="tours">
-                    Nombre de tours en course : <span class="tours">0</span>
+            <!-- <div class="result d-flex flex-row justify-content-center text-start">
+                <div class="me-3">
+                    <div class="tours" id="tours">
+                        Nombre de tours en course : <span class="tours">0</span>
+                    </div>
+                    <div class="fuel">
+                        Tours de fuel en plus : <span class="marge_fuel">1</span>
+                    </div>
+                    <div class="fuel">
+                        Tour de formation : <span class="formation">OUI</span>
+                    </div>
                 </div>
-                <div class="fuel">
-                    Tours de fuel en plus : <span class="marge_fuel">1</span>
+                <div class="ms-3">
+                    <div class="fuel">
+                        Fuel nécessaire : <span class="fuel">0</span>
+                    </div>
                 </div>
-                <div class="fuel">
-                    Tour de formation : <span class="formation">OUI</span>
-                </div>
-                <div class="fuel">
-                    Fuel nécessaire : <span class="fuel">0</span>
-                </div>
-            </div>
+            </div> -->
         </div>
     </main>
 
