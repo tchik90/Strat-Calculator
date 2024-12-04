@@ -17,10 +17,11 @@ function start_tps() {
 // hard = 400% de durée
 
 // DEBUG
-// document.getElementById('input_time').value = 600;
-// document.getElementById('minutes').value = 4;
-// document.getElementById('input_conso').value = 6;
-// document.getElementById('input_capacity').value = 100;
+// document.getElementById('input_time').value = 360;
+// document.getElementById('minutes').value = 2;
+// document.getElementById('secondes').value = 15;
+// document.getElementById('input_conso').value = 4.5;
+// document.getElementById('input_capacity').value = 105;
 
 function tps() {
 
@@ -146,7 +147,7 @@ function tps() {
     if (isNaN(refuel) || refuel == "Infinity" || nbr_arret == "0") {
         document.getElementById("result_refuel").value = ""
     } else {
-        document.getElementById("result_refuel").value = refuel;
+        document.getElementById("result_refuel").value = Math.ceil(refuel);
     }
 
 
