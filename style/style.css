@@ -326,3 +326,18 @@ footer {
     font-size: 17px;
     background-color: var(--color-secondary)
 }
+
+
+@media screen and (max-width: 530px) {
+
+    label {
+        font-size: 1.2em;
+    }
+
+    label.dixiemes,
+    label.secondes,
+    label.minutes,
+    label.input_result {
+      font-size: 0.8em !important;
+    }
+  }
