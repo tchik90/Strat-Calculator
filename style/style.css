@@ -340,4 +340,11 @@ footer {
     label.input_result {
       font-size: 0.8em !important;
     }
+
+    .minutes,
+    .secondes,
+    .dixiemes,
+    .input_result {
+        width: 90%;
+    }
   }
